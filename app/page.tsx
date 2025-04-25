@@ -1,5 +1,7 @@
 "use client";
 
+import benefits from "@/public/benefits.png";
+import hero from "@/public/hero.png";
 import {
   ArrowRight,
   Calendar,
@@ -14,7 +16,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { Icons } from "@/components/ui/icons";
+import { Icons, WhatsAppIcon } from "@/components/ui/icons";
 
 export default function Home() {
   return (
@@ -54,9 +56,6 @@ export default function Home() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Button variant="outline" className="hidden md:flex">
-              Entrar
-            </Button>
             <Button className="hidden md:flex bg-primary ">Agendar Demo</Button>
             <Button size="icon" variant="ghost" className="md:hidden">
               <Menu className="h-6 w-6" />
@@ -70,7 +69,7 @@ export default function Home() {
           <div className="container mx-auto px-4 md:px-6 max-w-7xl">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
+                <div className="space-y-6">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-primary">
                     Gestão Escolar Descomplicada para Pequenas Instituições
                   </h1>
@@ -90,11 +89,10 @@ export default function Home() {
               </div>
               <div className="flex justify-center">
                 <Image
-                  src="/placeholder.svg?height=400&width=400"
+                  src={hero}
                   alt="Plataforma Progresso Educacional"
-                  width={400}
-                  height={400}
-                  className="rounded-lg object-cover"
+                  sizes="100vw"
+                  className="rounded-lg object-cover "
                 />
               </div>
             </div>
@@ -205,17 +203,16 @@ export default function Home() {
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="flex justify-center">
                 <Image
-                  src="/placeholder.svg?height=400&width=400"
+                  src={benefits}
                   alt="Benefícios da plataforma"
-                  width={400}
-                  height={400}
-                  className="rounded-lg object-cover"
+                  sizes="100vw"
+                  className="rounded-lg object-cover max-w-full lg:min-w-[500px]"
                 />
               </div>
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <div className="inline-block rounded-lg text-primary px-3 py-1 text-sm bg-secondary/30">
-                    benefícios
+                    Benefícios
                   </div>
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-primary">
                     Ideal para escolas que querem crescer com organização
@@ -416,6 +413,16 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      {/* WhatsApp Floating Button */}
+      <Link
+        href="https://wa.me/5500000000000" // Replace with your actual WhatsApp number
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-primary fixed bottom-6  right-6 z-50 flex h-14 w-14 lg:h-20 lg:w-20 items-center justify-center rounded-full  text-white shadow-lg transition-all hover:bg-primary/80 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+        aria-label="Contato via WhatsApp"
+      >
+        <WhatsAppIcon className="fill-white h-10 w-10 lg:h-14 lg:w-14" />
+      </Link>
     </div>
   );
 }
