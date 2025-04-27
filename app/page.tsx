@@ -78,9 +78,9 @@ export default function Home() {
         </div>
       </header>
       <main className="flex-1">
-        <section className="relative min-h-screen bg-gradient-to-b border-b-background from-blue-950 to-blue-800 overflow-hidden">
+        <section className="relative min-h-screen bg-gradient-to-b from-blue-950 to-blue-800 overflow-hidden">
           {/* Wave decoration */}
-          <div className="absolute bottom-0 left-0 right-0">
+          <div className="absolute -bottom-[0.3px] left-0 right-0">
             <svg
               viewBox="0 0 1440 120"
               fill="none"
@@ -97,14 +97,7 @@ export default function Home() {
             {/* Left content */}
             <div className="lg:w-1/2 text-white mb-12 lg:mb-0 lg:pr-8">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight space-x-4 ">
-                <span>Plataforma de</span>
-                <span
-                  className={cn(
-                    "bg-clip-text text-transparent bg-gradient-to-b from-[#3131FC] via-white  to-[#1E9CEF] pr-2 py-4 "
-                  )}
-                >
-                  Gerenciamento Escolar Completa
-                </span>
+                Plataforma de Gerenciamento Escolar Completa
               </h1>
 
               <p className="text-lg mb-8 text-blue-100 max-w-xl">
