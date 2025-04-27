@@ -128,7 +128,7 @@ export default function Home() {
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 font-medium px-6 py-6 h-auto"
+                  className="border-white text-white bg-transparent hover:bg-white/10 font-medium px-6 py-6 h-auto"
                 >
                   Saiba Mais
                 </Button>
@@ -443,7 +443,12 @@ export default function Home() {
         <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row md:px-6 max-w-7xl">
           <div className="flex items-center gap-2">
             <Icons.logo className="h-8 w-8 fill-primary" />
-            <span className="text-lg font-bold text-primary">
+            <span
+              className={cn(
+                "bg-clip-text text-transparent bg-gradient-to-r py-2 px-2 from-primary via-primary/60 to-primary",
+                pacifico.className
+              )}
+            >
               Progresso Educacional
             </span>
           </div>
