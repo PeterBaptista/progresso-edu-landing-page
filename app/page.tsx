@@ -3,7 +3,6 @@
 import benefits from "@/public/benefits.png";
 import hero from "@/public/hero.png";
 import {
-  ArrowRight,
   Calendar,
   CheckCircle,
   CreditCard,
@@ -12,11 +11,20 @@ import {
   QrCode,
   Users,
 } from "lucide-react";
+import { Pacifico } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Icons, WhatsAppIcon } from "@/components/ui/icons";
+
+import { cn } from "@/lib/utils";
+
+const pacifico = Pacifico({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-pacifico",
+});
 
 export default function Home() {
   return (
@@ -25,7 +33,12 @@ export default function Home() {
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6 max-w-7xl">
           <div className="flex items-center gap-2">
             <Icons.logo className="h-8 w-8 fill-primary" />
-            <span className="text-lg font-bold text-primary">
+            <span
+              className={cn(
+                "bg-clip-text text-transparent bg-gradient-to-r py-2 px-2 from-primary via-primary/60 to-primary",
+                pacifico.className
+              )}
+            >
               Progresso Educacional
             </span>
           </div>
@@ -65,28 +78,65 @@ export default function Home() {
         </div>
       </header>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-white to-blue-50">
-          <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-6">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-primary">
-                    Gestão Escolar Descomplicada para Pequenas Instituições
-                  </h1>
-                  <p className="max-w-[600px] text-gray-500 md:text-xl">
-                    Uma plataforma feita sob medida para pequenas escolas e
-                    instituições de ensino que precisam de praticidade e
-                    eficiência na gestão do dia a dia.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button className="bg-primary hover:bg-navy-800">
-                    Solicitar Demonstração
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                  <Button variant="outline">Conheça Mais</Button>
-                </div>
+        <section className="relative min-h-screen bg-gradient-to-b border-b-background from-blue-950 to-blue-800 overflow-hidden">
+          {/* Wave decoration */}
+          <div className="absolute bottom-0 left-0 right-0">
+            <svg
+              viewBox="0 0 1440 120"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V120Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+
+          <div className="container mx-auto px-4 py-12 flex flex-col lg:flex-row items-center justify-between relative z-10">
+            {/* Left content */}
+            <div className="lg:w-1/2 text-white mb-12 lg:mb-0 lg:pr-8">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight space-x-4 ">
+                <span>Plataforma de</span>
+                <span
+                  className={cn(
+                    "bg-clip-text text-transparent bg-gradient-to-b from-[#3131FC] via-white  to-[#1E9CEF] pr-2 py-4 "
+                  )}
+                >
+                  Gerenciamento Escolar Completa
+                </span>
+              </h1>
+
+              <p className="text-lg mb-8 text-blue-100 max-w-xl">
+                Transforme a gestão da sua escola com nossa plataforma integrada
+                de gerenciamento e acompanhamento escolar.
+              </p>
+
+              <div className="mb-8">
+                <h2 className="text-xl font-semibold mb-2">
+                  Agenda Digital, Crachá Personalizado, Gestão Acadêmica,
+                  Comunicação
+                </h2>
+                <p className="text-blue-200">
+                  Inovação. Eficiência. Praticidade. Colaboração.
+                </p>
               </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button className="bg-white text-blue-900 hover:bg-blue-100 font-medium px-6 py-6 h-auto">
+                  Agendar Demonstração
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-white text-white hover:bg-white/10 font-medium px-6 py-6 h-auto"
+                >
+                  Saiba Mais
+                </Button>
+              </div>
+            </div>
+
+            {/* Right content - Login card */}
+            <div className="lg:w-5/12">
               <div className="flex justify-center">
                 <Image
                   src={hero}
